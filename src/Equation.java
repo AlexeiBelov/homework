@@ -12,7 +12,7 @@ public class Equation {
             System.out.print("Введите целое число: ");
             a = scA.nextInt();
             if (a == 0) {
-                System.out.println("Повторите ввод");
+                System.out.println("Первый коэффициент не может быть 0. Повторите ввод");
 
             }else firstCoefficient = false;
         }
