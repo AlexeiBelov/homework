@@ -2,38 +2,32 @@ import java.util.Scanner;
 
 public class Equation {
     public static void main(String[] args) {
-        boolean firstCoefficient = true;
-        int discriminant;
-        int result;
-        int result2;
-        int a = 0;
-        while (firstCoefficient) {
-            Scanner scA = new Scanner(System.in);
-            System.out.print("Введите целое число: ");
-            a = scA.nextInt();
-            if (a == 0) {
-                System.out.println("Первый коэффициент не может быть 0. Повторите ввод");
+        int a;
+        Scanner scanner = new Scanner(System.in);
 
-            }else firstCoefficient = false;
-        }
-        Scanner scB = new Scanner(System.in);
-        System.out.print("Введите целое число: ");
-        int b = scB.nextInt();
-        Scanner sC = new Scanner(System.in);
-        System.out.print("Введите целое число: ");
-        int c = sC.nextInt();
+        do {
+            a = getNextCoefficient(scanner, "A");
+        } while (a == 0);
 
-        discriminant = b * b - 4 * a * c;
-        System.out.println(discriminant);
+        int b = getNextCoefficient(scanner, "B");
+        int c = getNextCoefficient(scanner, "C");
+
+        int discriminant = b * b - 4 * a * c;
+        System.out.println("Дискриминант: " + discriminant);
         if (discriminant < 0) {
             System.out.println("Нет действительных решений уравнения");
         } else if (discriminant == 0) {
-            result = -1 * b / (2 * a);
+            double result = (double) -b / (2 * a);
             System.out.println(result);
         } else if (discriminant > 0) {
-            result = (int) ((-1 * b + Math.sqrt(discriminant)) / 2 * a);
-            result2 = (int) ((-1 * b - Math.sqrt(discriminant)) / 2 * a);
+            double result = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double result2 = (-b - Math.sqrt(discriminant)) / (2 * a);
             System.out.println(result + " " + result2);
         }
+    }
+
+    private static int getNextCoefficient(Scanner scanner, String coeff) {
+        System.out.print(String.format("Введите коэффициент %s целое число: ", coeff));
+        return scanner.nextInt();
     }
 }
