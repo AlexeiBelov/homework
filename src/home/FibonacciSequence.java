@@ -1,7 +1,9 @@
+package home;
+
 public class FibonacciSequence {
     public static void main(String[] args) {
         generationAndConclusionArray();
-        fortyThirdMemberArray();
+        System.out.println("Это 43 номер  " + calcFibonacci(43));
         primeNumber();
         serialNumber();
     }
@@ -20,20 +22,15 @@ public class FibonacciSequence {
         }
     }
 
-    private static void fortyThirdMemberArray() {
-        int maxNumber = 43;
+    static int calcFibonacci(int n) {
         int a = 0, b = 1;
-        int numberFibonacci, i = 0;
-        while (i < maxNumber) {
+        int numberFibonacci = 1;
+        for (int i = 0; i < n; i++) {
             numberFibonacci = a + b;
             a = b;
             b = numberFibonacci;
-            i++;
-            if (i == 43) {
-                System.out.println("");
-                System.out.print("Это 43 число - " + numberFibonacci);
-            }
         }
+        return numberFibonacci;
     }
 
     private static void primeNumber() {

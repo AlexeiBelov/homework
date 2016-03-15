@@ -1,3 +1,5 @@
+package home;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class LoggerMain {
-    private static final Logger log = new Logger("c:/logs/LoggerMain.log");
+    private static final Logger log = new Logger("c:/logs/home.LoggerMain.log");
 
     private static final Runnable runnable = new Runnable() {
         @Override
