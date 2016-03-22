@@ -35,7 +35,6 @@ public class Main {
             if (index-- % 2 == 0) {
                 it.remove();
             }
-
         }
     }
 }
