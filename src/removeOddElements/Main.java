@@ -1,12 +1,11 @@
 package removeOddElements;
 
-import java.util.AbstractList;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     private static final String SYMBOLS = "йцукенгшщзхъфывапролджэячсмитьбю";
-    private static AbstractList<String> oddElements = new ArrayList<>();
+    private static final Deque<String> oddElements = new LinkedList<>();
 
     public static void main(String[] args) {
         for (int i = 0; i < 70; i++) {
@@ -14,6 +13,8 @@ public class Main {
         }
         System.out.println(oddElements);
         removeOdd();
+        System.out.println(oddElements);
+
     }
 
     private static String generateString() {
@@ -27,11 +28,14 @@ public class Main {
     }
 
     private static void removeOdd() {
-        for (int i = 69; i > 0; i--) {
-            if (!(i % 2 == 0)){
-                oddElements.remove(i);
+        Iterator<String> it = oddElements.descendingIterator();
+        int index = oddElements.size();
+        while (it.hasNext()) {
+            it.next();
+            if (index-- % 2 == 0) {
+                it.remove();
             }
-            System.out.println(oddElements);
+
         }
     }
 }
