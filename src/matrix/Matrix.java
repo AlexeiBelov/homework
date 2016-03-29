@@ -68,9 +68,12 @@ public class Matrix {
         Matrix matrix3 = makeIdentityMatrix().print().multiplicationByNumber();
         matrix3.print();
 
+       Reflection.reflection(matrix);
+
     }
 
-    private Matrix print() {
+
+    public Matrix print() {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 System.out.print(matrix[i][j] + " ");
@@ -79,6 +82,10 @@ public class Matrix {
         }
         System.out.println();
         return this;
+    }
+
+    private Matrix printPrivate(){
+       return print();
     }
 
     private Matrix multiplicationByNumber() {
